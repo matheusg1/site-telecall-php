@@ -1,0 +1,92 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+*{
+    font-family:'Ubuntu', sans-serif;
+    font-weight: 900;
+}
+
+nav ul {
+    font-family:'Roboto', sans-serif;
+    font-weight: 500;
+}
+.row {
+    height:450px;
+}
+form{
+    font-size: 18px;
+}
+.degradeMovimento {
+
+    display: block; 
+    /*margin-left:10px;*/
+    text-align: center;
+    
+    color: white;
+    background: linear-gradient(45deg, rgb(0, 0, 0), rgb(0, 0, 0) 50%, #0b92f0 55%, #cb1c2c);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 230% 100%;
+    background-position: 0%;
+    transition: background-position 0.42s ease;
+  }
+.degradeMovimento:hover {
+    background-position: 100%;
+}
+.botaoInvisivel{
+    background: none;
+	color: #0b92f0;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+.titulo{
+    font-size:54px !important;
+}
+button{
+    border-radius: 0 !important;
+}
+input{
+    border-radius: 0 !important;
+}
+.modelagemCard{
+    transition: 0.3s;
+    opacity:0.8;
+}
+.modelagemCard:hover{
+    transition: 0.3s;
+    opacity:1;
+}
+.carousel-item p{
+    font-weight: 700;
+    font-size: 1.4rem;
+    color:black;
+}
+.carousel-item h5{
+    font-weight: 700;
+    font-size: 1.8rem;
+    color:black;
+}
+
+#googleMap{
+    margin: auto;
+    text-align: center;
+    width:100%;
+    height:100%;
+}
+canvas{ 
+    display: block;
+  }
+  #particles-container{ 
+    position: absolute; 
+    width: 100%; 
+    height: 100%; 
+    background-color: #e7e7e7 ; 
+    background-image: url("");
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-position: 100% 100%; 
+}
