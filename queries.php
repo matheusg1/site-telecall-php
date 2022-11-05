@@ -201,7 +201,7 @@ require_once("funcoes.php");
                                 <img src="Imagens/baixaPlanilha/query20.png" class="d-block w-100" alt="...">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Recebe os registros de login, incluindo IP e geolocalização</h5>
-                                    <p>Usada na aplicação baixaPlanilha.php</p>
+                                    <p>Usada na aplicação baixa_planilha.php</p>
                                 </div>
                                 </div>
                             </div>
