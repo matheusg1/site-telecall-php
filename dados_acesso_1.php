@@ -23,7 +23,7 @@
     <nav class="navbar navbar-expand-lg bg-light shadow-sm">
         <div class="px-5 d-none d-lg-block"></div>
         <div class="container-fluid"><a class="navbar-brand titulo degradeMovimento" href="<?php echo mudaLink() ?>">
-                <img src="Imagens/telecall-icon.png" alt="" width="58.4px" height="58.4px" class="d-inline-block align-text-middle">
+            <img src="Imagens/telecall-icon.png" alt="" width="68.4px" height="68.4px" class="d-inline-block align-text-middle">
                 telecall
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
