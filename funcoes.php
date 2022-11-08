@@ -73,6 +73,33 @@ function mostraBotaoLogout(){
     }
 }
 
+function mostraBotaoCadastro(){
+
+    if (isset($_SESSION['tipo_usu_id'])){
+
+        if ($_SESSION['tipo_usu_id'] == 1){
+                echo '<li class="nav-item degradeMovimento"><a class="nav-link" aria-current="page" href="cadastro.php">Cadastro</a></li>';
+        }
+    }
+    else{
+        echo '<li class="nav-item degradeMovimento"><a class="nav-link" aria-current="page" href="cadastro.php">Cadastro</a></li>';
+
+    }
+}
+
+function defineTipoUsuario(){
+
+    if (isset($_SESSION['tipo_usu_id'])){
+
+        if ($_SESSION['tipo_usu_id'] == 1){
+            return 1;
+        }
+    }
+    else{
+        return 2;
+    }
+}
+
 function mostraMudanca() { //usada na alteração de dados
 
     if (isset($_SESSION['mudaDados'])){
@@ -86,15 +113,15 @@ function mostraMudanca() { //usada na alteração de dados
     }
 }
 
-function checaRepeticao($resultado){ //cpf e login
+function checaRepeticao($query){    //cpf e login
 
-    switch(mysqli_num_rows($resultado)) {
-
-        case(0):
-            return false;
+    switch(mysqli_num_rows($query)) {
 
         case(1):
             return true;
+            break;
+        default:
+            return false;
     } 
 }
 
@@ -124,16 +151,10 @@ function mostraAviso(){
 
     if(isset($_SESSION['msg'])){
                         
-        echo '<div class="alert alert-secondary rounded-0" role="alert">';
+        echo '<div class="alert alert-secondary text-center rounded-0" role="alert">';
         echo $_SESSION['msg'] . '</div>';
         return $_SESSION['msg'];
 
-    }
-    if(isset($_SESSION['msgcad'])){
-
-        echo '<div class="alert alert-secondary rounded-0" role="alert">';
-        echo $_SESSION['msgcad'] . '</div>';
-        return $_SESSION['msgcad'];
     }
 }
 
@@ -143,8 +164,23 @@ function apagaAviso(){
                         
         unset($_SESSION['msg']);
     }
-    if(isset($_SESSION['msgcad'])){
+}
 
+function mostraAvisoCadastro(){
+
+    if(isset($_SESSION['msgcad'])){
+                        
+        echo '<div class="alert alert-secondary text-center rounded-0" role="alert">';
+        echo $_SESSION['msgcad'] . '</div>';
+        return $_SESSION['msgcad'];
+
+    }
+}
+
+function apagaAvisoCadastro(){
+    
+    if(isset($_SESSION['msgcad'])){
+                        
         unset($_SESSION['msgcad']);
     }
 }

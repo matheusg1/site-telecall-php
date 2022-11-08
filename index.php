@@ -20,7 +20,7 @@ require_once("funcoes.php");
     <nav class="navbar navbar-expand-lg bg-light shadow-sm">
         <div class="px-5 d-none d-lg-block"></div>
         <div class="container-fluid"><a class="navbar-brand titulo degradeMovimento" href="<?php echo mudaLink() ?>">
-            <img src="Imagens/telecall-icon.png" alt="" width="68.4px" height="68.4px" class="d-inline-block align-text-middle">
+                <img src="Imagens/telecall-icon.png" alt="" width="78.4px" height="78.4px" class="d-inline-block align-text-middle">
                 telecall
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,10 +28,7 @@ require_once("funcoes.php");
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav fs-4 text-uppercase">
-                    <?php mostraBotaoLogout() ?>
-                    <li class="nav-item degradeMovimento">
-                    <a class="nav-link " aria-current="page" href="cadastro.php">Cadastro</a>
-                    </li>
+                    <?php mostraBotaoLogout(); mostraBotaoCadastro() ?>
                     <li class="nav-item degradeMovimento">
                     <a class="nav-link" href="modelagem.php">Modelo de dados</a>
                     </li>
@@ -45,28 +42,40 @@ require_once("funcoes.php");
     </nav>
     <div class="container-fluid mt-5">
         <div class="row align-content-center">
-                <div class="col-xs-12 col-sm-10 col-md-8 col-lg-4 col-xl-4 col-xxl-2 m-auto mt-5">
-                    <div class="card border-0 shadow rounded-0">
-                        <div class="card-body">
-                            <?php mostraAviso(); apagaAviso() ?>
-                            <form action="valida.php" method="POST" name="frm" class="bg-white text-dark">
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Login</label>
-                                    <input type="text" name="login" class="form-control rounded-0" placeholder="Digite seu login" autofocus>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Senha</label>
-                                    <input type="password" name="senha" class="form-control rounded-0" id="senhaId" placeholder="Digite sua senha">
-                                </div>
-                                <input type="hidden" name="latitude">
-                                <input type="hidden" name="longitude">
-                                <div class="text-center d-grid gap-2">
-                                    <button type="submit" class="btn btn-outline-primary rounded-0" name="botaoLogin" value="botaoLogin">Entrar</button>
-                                </div>
-                            </form>
-                        </div>
+            <div class="h-100 d-flex justify-content-around align-items-center">
+            <div class="d-none d-lg-block me-5">
+                <div class="card opacity-0" style="width: 18rem;">
+                    <div class="card-body"></div>
+                </div>
+            </div>
+                <div class="card border-0 shadow rounded-0">
+                    <div class="card-body">
+                        <?php mostraAviso(); apagaAviso() ?>
+                        <form action="valida.php" method="POST" name="frm" class="bg-white text-dark">
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Login</label>
+                                <input type="text" name="login" class="form-control rounded-0" placeholder="Digite seu login" autofocus>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Senha</label>
+                                <input type="password" name="senha" class="form-control rounded-0" id="senhaId" placeholder="Digite sua senha">
+                            </div>
+                            <input type="hidden" name="latitude">
+                            <input type="hidden" name="longitude">
+                            <div class="text-center d-grid gap-2">
+                                <button type="submit" class="btn btn-outline-primary rounded-0" name="botaoLogin" value="botaoLogin">Entrar</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
+                <div class="card border-0 shadow rounded-0 ms-5 d-none d-lg-block cardIndexFoto" style="width: 18rem;">
+                    <img src="Imagens/foto1.png" class="card-img-top shadow rounded-0" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Matheus Gomes da Silva</h5>
+                            <p class="card-text text-danger">Não fiz o módulo 1</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script>

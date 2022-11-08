@@ -8,7 +8,6 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="Imagens/favicon.ico"/>
@@ -23,7 +22,7 @@
     <nav class="navbar navbar-expand-lg bg-light shadow-sm">
         <div class="px-5 d-none d-lg-block"></div>
         <div class="container-fluid"><a class="navbar-brand titulo degradeMovimento" href="<?php echo mudaLink() ?>">
-            <img src="Imagens/telecall-icon.png" alt="" width="68.4px" height="68.4px" class="d-inline-block align-text-middle">
+            <img src="Imagens/telecall-icon.png" alt="" width="78.4px" height="78.4px" class="d-inline-block align-text-middle">
                 telecall
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,10 +30,7 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav fs-4 text-uppercase">
-                    <?php mostraBotaoLogout() ?>
-                    <li class="nav-item degradeMovimento">
-                    <a class="nav-link " aria-current="page" href="cadastro.php">Cadastro</a>
-                    </li>
+                <?php mostraBotaoLogout(); mostraBotaoCadastro() ?>
                     <li class="nav-item degradeMovimento">
                     <a class="nav-link" href="modelagem.php">Modelo de dados</a>
                     </li>
@@ -54,7 +50,7 @@
                     <div class="table-responsive">
                         <div class="table-hover">
                             <table class="table table-hover text-black  caption-top">
-                            <caption class="text-white">Registros de login</caption>
+                            <caption class="text-dark">Registros de acesso</caption>
                                 <thead class="table-light border-dark border-bottom border-3">
                                     <tr>
                                     <th scope="col">Login</th>
@@ -126,6 +122,7 @@
                                     <input type="text" name="pagina" class="form-control col-xs-1" id="1" aria-label="Recipient's username" aria-describedby="button-addon2" value="<?php echo $pc ?>">
                                     <button class="btn btn-outline-primary" name="btnPag" type="submit" id="button-addon2">Ir</button><div class="col-form-label col-form-label-md fs-4 px-3">de <?php echo ceil($tp) ?></div>
                                 </div>
+                                <a href="dados_usuarios.php" class="btn btn-outline-primary mx-2 rounded-0" name="btnPlanilha" type="button" id="button-addon2" aria-label="Recipient's username" aria-describedby="button-addon2">Dados dos usuários</a>
                                 <a href="baixa_planilha.php" class="btn btn-outline-primary mx-2 rounded-0" name="btnPlanilha" type="button" id="button-addon2" aria-label="Recipient's username" aria-describedby="button-addon2" target="_blank">Baixar Planilha</a>
                                 <a href='logout.php' type="button" name="botaoLogout" class="btn btn-outline-primary mx-2 rounded-0" >Deslogar</a>
                             </div>

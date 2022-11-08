@@ -20,7 +20,7 @@ require_once("funcoes.php");
     <nav class="navbar navbar-expand-lg bg-light shadow-sm">
         <div class="px-5 d-none d-lg-block"></div>
         <div class="container-fluid"><a class="navbar-brand titulo degradeMovimento" href="<?php echo mudaLink() ?>">
-            <img src="Imagens/telecall-icon.png" alt="" width="68.4px" height="68.4px" class="d-inline-block align-text-middle">
+            <img src="Imagens/telecall-icon.png" alt="" width="78.4px" height="78.4px" class="d-inline-block align-text-middle">
                 telecall
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,10 +28,7 @@ require_once("funcoes.php");
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav fs-4 text-uppercase">
-                    <?php mostraBotaoLogout() ?>
-                    <li class="nav-item degradeMovimento">
-                    <a class="nav-link " aria-current="page" href="cadastro.php">Cadastro</a>
-                    </li>
+                <?php mostraBotaoLogout(); mostraBotaoCadastro() ?>
                     <li class="nav-item degradeMovimento">
                     <a class="nav-link" href="modelagem.php">Modelo de dados</a>
                     </li>
@@ -69,6 +66,10 @@ require_once("funcoes.php");
                                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="16" aria-label="Slide 17"></button>
                                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="17" aria-label="Slide 18"></button>
                                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="18" aria-label="Slide 19"></button>
+                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="19" aria-label="Slide 20"></button>
+                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="20" aria-label="Slide 21"></button>
+                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="21" aria-label="Slide 22"></button>
+                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="22" aria-label="Slide 23"></button>
                             </div>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
@@ -198,10 +199,40 @@ require_once("funcoes.php");
                                 </div>
                                 </div>
                                 <div class="carousel-item">
-                                <img src="Imagens/baixaPlanilha/query20.png" class="d-block w-100" alt="...">
+                                <img src="Imagens/baixa_planilha/query20.png" class="d-block w-100" alt="...">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5>Recebe os registros de login, incluindo IP e geolocalização</h5>
                                     <p>Usada na aplicação baixa_planilha.php</p>
+                                    </div>
+                                </div>
+
+
+                                <div class="carousel-item">
+                                <img src="Imagens/cadastro/cadastro1.png" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Usada para verificar se o CPF já existe no banco</h5>
+                                    <p>Usada na página cadastro.php</p>
+                                </div>
+                                </div>
+                                <div class="carousel-item">
+                                <img src="Imagens/cadastro/cadastro2.png" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Usada para verificar se o login já existe no banco</h5>
+                                    <p>Usada na página cadastro.php</p>
+                                </div>
+                                </div>
+                                <div class="carousel-item">
+                                <img src="Imagens/cadastro/cadastro3.png" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Usada para cadastro do usuário</h5>
+                                    <p>Usada na página cadastro.php</p>
+                                </div>
+                                </div>
+                                <div class="carousel-item">
+                                <img src="Imagens/dados_usuarios/dados1.png" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Usada para receber dados dos usuários</h5>
+                                    <p>Usada na página dados_usuarios.php</p>
                                 </div>
                                 </div>
                             </div>

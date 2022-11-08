@@ -1,6 +1,5 @@
 <?php
 session_start();
-date_default_timezone_set('America/Sao_Paulo');
 require_once("funcoes.php");
 
 $botaoRegistrar = filter_input(INPUT_POST, 'botaoRegistrar');
@@ -11,11 +10,36 @@ if ($botaoRegistrar) {
     $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
     $dados["senha"] = password_hash($dados["senha"], PASSWORD_DEFAULT); 
 
-    $sql = "INSERT INTO usuario VALUES (null, ?, ?, ?, ?, ?, ?, ?, '2', ?, ?)"; 
+    $cpfRepetido = $loginRepetido = false;
+
+    $sql = 'SELECT usu_cpf FROM usuario WHERE usu_cpf = "' . $dados['cpf'] . '"'; 
+    $query = mysqli_query($conexao, $sql);
+    checaRepeticao($query) ? $cpfRepetido = true : "";
+
+    $sql = 'SELECT usu_login FROM usuario WHERE usu_login = "' . $dados['login'] . '"'; 
+    $query = mysqli_query($conexao, $sql);
+    checaRepeticao($query) ? $loginRepetido = true : "";
+
+    if (($cpfRepetido) or ($loginRepetido)){
+
+        if (($cpfRepetido) and ($loginRepetido)){
+            $_SESSION['msgcad'] = "CPF e Login já cadastrados";
+        }
+        else if($cpfRepetido){
+            $_SESSION['msgcad'] = "CPF já cadastrado";
+
+        }
+        else if($loginRepetido){
+            $_SESSION['msgcad'] = "Login já cadastrado";
+        }
+    }
+    else{
+
+        $sql = "INSERT INTO usuario VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"; 
     
     if($stmt = mysqli_prepare($conexao, $sql)) {
 
-        mysqli_stmt_bind_param($stmt, 'sssssssss', $param_usu_nome, $param_usu_nascimento, $param_usu_nomemat, $param_usu_cpf, $param_usu_celular, $param_usu_fixo, $param_usu_endereco, $param_usu_login, $param_usu_senha);
+        mysqli_stmt_bind_param($stmt, 'sssssssiss', $param_usu_nome, $param_usu_nascimento, $param_usu_nomemat, $param_usu_cpf, $param_usu_celular, $param_usu_fixo, $param_usu_endereco, $param_usu_tipo, $param_usu_login, $param_usu_senha);
 
         $param_usu_nome = $dados['nome'];
         $param_usu_nascimento = $dados['nascimento'];
@@ -24,6 +48,7 @@ if ($botaoRegistrar) {
         $param_usu_celular = $dados['celular'];
         $param_usu_fixo = $dados['fixo'];
         $param_usu_endereco = $dados['endereco'];
+        $param_usu_tipo = defineTipoUsuario();
         $param_usu_login = $dados['login'];
         $param_usu_senha = $dados['senha'];
 
@@ -33,12 +58,9 @@ if ($botaoRegistrar) {
             mysqli_stmt_close($stmt);
             mysqli_close($conexao);
 
-            $_SESSION['msgcad'] = "Usuário cadastrado com sucesso";
-            header("location: index.php");
+            $_SESSION['msg'] = "Usuário cadastrado com sucesso";
+            header("Location: index.php");
         }
-        else{
-
-            $_SESSION['msg'] = "Erro ao cadastrar o usuário";
         }
     }
 }
@@ -61,7 +83,7 @@ if ($botaoRegistrar) {
     <nav class="navbar navbar-expand-lg bg-light shadow-sm"">
         <div class="px-5 d-none d-lg-block"></div>
         <div class="container-fluid"><a class="navbar-brand titulo degradeMovimento" href="<?php echo mudaLink() ?>">
-            <img src="Imagens/telecall-icon.png" alt="" width="68.4px" height="68.4px" class="d-inline-block align-text-middle">
+            <img src="Imagens/telecall-icon.png" alt="" width="78.4px" height="78.4px" class="d-inline-block align-text-middle">
                 telecall
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,10 +91,7 @@ if ($botaoRegistrar) {
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav fs-4 text-uppercase">
-                    <?php mostraBotaoLogout() ?>
-                    <li class="nav-item degradeMovimento">
-                    <a class="nav-link " aria-current="page" href="cadastro.php">Cadastro</a>
-                    </li>
+                <?php mostraBotaoLogout(); mostraBotaoCadastro() ?>
                     <li class="nav-item degradeMovimento">
                     <a class="nav-link" href="modelagem.php">Modelo de dados</a>
                     </li>
@@ -89,7 +108,7 @@ if ($botaoRegistrar) {
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-10 col-xxl-9 mx-auto mt-5">
                 <div class="card">
                     <div class="card-body">
-                    <?php mostraAviso(); apagaAviso() ?>
+                    <?php mostraAvisoCadastro(); apagaAvisoCadastro() ?>
                         <form action="" method="POST">
                             <div class="input-group mb-3">
                                 <label for="nomeId" class="col-sm-2 col-form-label col-form-label-lg">Nome*</label>

@@ -20,7 +20,7 @@ require_once("funcoes.php");
     <nav class="navbar navbar-expand-lg bg-light shadow-sm">
         <div class="px-5 d-none d-lg-block"></div>
         <div class="container-fluid"><a class="navbar-brand titulo degradeMovimento" href="<?php echo mudaLink() ?>">
-            <img src="Imagens/telecall-icon.png" alt="" width="68.4px" height="68.4px" class="d-inline-block align-text-middle">
+                <img src="Imagens/telecall-icon.png" alt="" width="78.4px" height="78.4px" class="d-inline-block align-text-middle">
                 telecall
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,10 +28,7 @@ require_once("funcoes.php");
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                 <ul class="navbar-nav fs-4 text-uppercase">
-                    <?php mostraBotaoLogout() ?>
-                    <li class="nav-item degradeMovimento">
-                    <a class="nav-link " aria-current="page" href="cadastro.php">Cadastro</a>
-                    </li>
+                <?php mostraBotaoLogout(); mostraBotaoCadastro() ?>
                     <li class="nav-item degradeMovimento">
                     <a class="nav-link" href="modelagem.php">Modelo de dados</a>
                     </li>

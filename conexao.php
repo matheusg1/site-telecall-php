@@ -1,9 +1,9 @@
 <?php
 date_default_timezone_set('America/Sao_Paulo');
 
-$host = "telecalldb.cbdhhfymtkyw.us-east-1.rds.amazonaws.com";
+$host = "instancia-rds.cbdhhfymtkyw.us-east-1.rds.amazonaws.com";
 $user = "admin";
-$pass = "adminadmin";
+$pass = "jurema123";
 $banco = "trabalhodb";
 
 $conexao = mysqli_connect($host, $user, $pass, $banco);
